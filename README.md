@@ -1,4 +1,4 @@
 # Abominarium
 Projet symfony
 
-Bienvenue dans l'Abobinarium, l'encyclopédie des Abomistar.
+Bienvenue dans l'Abominarium, l'encyclopédie des Abomistar.
