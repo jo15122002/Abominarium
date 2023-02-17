@@ -21,10 +21,10 @@ class Type
     #[ORM\ManyToMany(targetEntity: Abomistar::class, mappedBy: 'types')]
     private Collection $abomistars;
 
-    #[ORM\ManyToMany(targetEntity: Type::class, mappedBy: 'strengths')]
+    #[ORM\ManyToMany(targetEntity: Type::class)]
     private Collection $weaknesses;
 
-    #[ORM\ManyToMany(targetEntity: Type::class, mappedBy: 'weaknesses')]
+    #[ORM\ManyToMany(targetEntity: Type::class)]
     private Collection $strengths;
 
     public function __construct()
