@@ -21,11 +21,11 @@ class AbomistarType
     #[ORM\ManyToMany(targetEntity: Abomistar::class, mappedBy: 'types')]
     private Collection $abomistars;
 
-    #[ORM\ManyToMany(targetEntity: AbomistarType::class)]
-    private Collection $weaknesses;
+    #[ORM\ManyToMany(targetEntity: AbomistarType::class, inversedBy: 'weaknesses')]
+    private $strengths;
 
-    #[ORM\ManyToMany(targetEntity: AbomistarType::class)]
-    private Collection $strengths;
+    #[ORM\ManyToMany(targetEntity: AbomistarType::class, mappedBy: 'strengths')]
+    private $weaknesses;
 
     public function __construct()
     {

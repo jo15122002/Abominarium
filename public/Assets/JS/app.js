@@ -1,8 +1,8 @@
 // selected necessary dom elements
 
 const domElements = {
-    buttonA: document.querySelectorAll('.buttons__button')[0],
-    buttonB: document.querySelectorAll('.buttons__button')[1],
+    buttonA: document.querySelectorAll('.buttons__button')[1],
+    buttonB: document.querySelectorAll('.buttons__button')[0],
     dPadTop: document.querySelector('.d-pad__cell.top'),
     dPadLeft: document.querySelector('.d-pad__cell.left'),
     dPadRight: document.querySelector('.d-pad__cell.right'),
