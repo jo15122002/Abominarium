@@ -2,26 +2,26 @@
 
 namespace App\Repository;
 
-use App\Entity\Type;
+use App\Entity\AbomistarType;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
  * @extends ServiceEntityRepository<Type>
  *
- * @method Type|null find($id, $lockMode = null, $lockVersion = null)
- * @method Type|null findOneBy(array $criteria, array $orderBy = null)
- * @method Type[]    findAll()
- * @method Type[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method AbomistarType|null find($id, $lockMode = null, $lockVersion = null)
+ * @method AbomistarType|null findOneBy(array $criteria, array $orderBy = null)
+ * @method AbomistarType[]    findAll()
+ * @method AbomistarType[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class TypeRepository extends ServiceEntityRepository
+class AbomistarTypeRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Type::class);
+        parent::__construct($registry, AbomistarType::class);
     }
 
-    public function save(Type $entity, bool $flush = false): void
+    public function save(AbomistarType $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
 
@@ -30,7 +30,7 @@ class TypeRepository extends ServiceEntityRepository
         }
     }
 
-    public function remove(Type $entity, bool $flush = false): void
+    public function remove(AbomistarType $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
 

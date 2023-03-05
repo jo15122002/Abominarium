@@ -31,7 +31,7 @@ class Abomistar
     #[ORM\ManyToMany(targetEntity: Capacity::class, inversedBy: 'user')]
     private Collection $capacities;
 
-    #[ORM\ManyToMany(targetEntity: Type::class, inversedBy: 'abomistars')]
+    #[ORM\ManyToMany(targetEntity: AbomistarType::class, inversedBy: 'abomistars')]
     private Collection $types;
 
     #[ORM\ManyToOne(inversedBy: 'inhabitants')]
@@ -134,14 +134,14 @@ class Abomistar
     }
 
     /**
-     * @return Collection<int, Type>
+     * @return Collection<int, AbomistarType>
      */
     public function getTypes(): Collection
     {
         return $this->types;
     }
 
-    public function addType(Type $type): self
+    public function addType(AbomistarType $type): self
     {
         if (!$this->types->contains($type)) {
             $this->types->add($type);
@@ -150,7 +150,7 @@ class Abomistar
         return $this;
     }
 
-    public function removeType(Type $type): self
+    public function removeType(AbomistarType $type): self
     {
         $this->types->removeElement($type);
 
