@@ -1,3 +1,5 @@
+{% extends 'base.html.twig' %}
+
 {% block leftScreen %}
     <div class="main-screen hide">
         <div class="screen__header">
@@ -28,7 +30,7 @@
 {% block rightScreen %}
     {% for abomistar in abomistars %}
         <div class="list-item">
-            {{ abomistar.name.toUpperCase() }}
+            {{ abomistar.name|upper }}
         </div>
     {% endfor %}
 {% endblock %}
