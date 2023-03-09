@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}- User{% endblock %}
+
+{% block rightScreen %}
+    <h1>User</h1>
+
+    <table class="table">
+        <tr>
+            <th>Id</th>
+            <th>Email</th>
+            <th>Roles</th>
+        </tr>
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+        </tr>
+    </table>
+
+    <a href="{{ path('app_user_index') }}">back to list</a>
+
+    {% if is_granted('ROLE_ADMIN') or user.id == app.user.id %}
+        <a href="{{ path('app_user_edit', {'id': user.id}) }}">edit</a>
+
+        {{ include('user/_delete_form.html.twig') }}
+    {% endif %}
+{% endblock %}

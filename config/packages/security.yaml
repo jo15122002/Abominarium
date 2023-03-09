@@ -20,9 +20,12 @@ security:
                 # "app_login" is the name of the route created previously
                 login_path: app_login
                 check_path: app_login
+                default_target_path: app_home_index
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall
-
+            logout:
+                path: app_logout
+                target: app_home_index
             # https://symfony.com/doc/current/security/impersonating_user.html
             # switch_user: true
 
@@ -31,6 +34,9 @@ security:
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/login, roles: PUBLIC_ACCESS }
+        - { path: ^/register, roles: PUBLIC_ACCESS }
+        - { path: ^/, roles: ROLE_USER }
 
 when@test:
     security:
