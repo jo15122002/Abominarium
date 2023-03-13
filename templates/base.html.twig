@@ -5,8 +5,10 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="assets/CSS/style.css">
-    <title>Abominarium</title>
+    {% block styles %}
+        <link rel="stylesheet" href="{{ asset('Assets/CSS/style.css') }}">
+    {% endblock %}
+    <title>Abominarium{% block title %}{% endblock %}</title>
 </head>
 <body>
 <div class="abominarium">
@@ -18,35 +20,24 @@
                 <div class="top-section__yellow"></div>
                 <div class="top-section__green"></div>
             </div>
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <div class="logout">
+                    <a href="{{ logout_path() }}">Se déconnecter</a>
+                </div>
+            {% else %}
+                <div class="login">
+                    <a href="{{ path('app_login') }}">Se connecter</a>
+                    <a href="{{ path('app_register') }}">Créer un compte</a>
+                </div>
+            {% endif %}
         </div>
         <div class="left-container__main-section-container">
             <div class="left-container__main-section">
                 <div class="main-section__white">
                     <div class="main-section__black">
-                        <div class="main-screen hide">
-                            <div class="screen__header">
-                                <span class="poke-name"></span>
-                                <span class="poke-id"></span>
-                            </div>
-                            <div class="screen__image">
-                                <img src="" class="poke-front-image" alt="front">
-                                <img src="" class="poke-back-image" alt="back">
-                            </div>
-                            <div class="screen__description">
-                                <div class="stats__types">
-                                    <span class="poke-type-one"></span>
-                                    <span class="poke-type-two"></span>
-                                </div>
-                                <div class="screen__stats">
-                                    <p class="stats__weight">
-                                        weight: <span class="poke-weight"></span>
-                                    </p>
-                                    <p class="stats__height">
-                                        height: <span class="poke-height"></span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                        {% block leftScreen %}
+
+                        {% endblock %}
                     </div>
                 </div>
                 <div class="left-container__controllers">
@@ -74,7 +65,9 @@
     <div class="right-container">
         <div class="right-container__black">
             <div class="right-container__screen">
-                <div class="list-item"></div>
+                {% block rightScreen %}
+
+                {% endblock %}
             </div>
         </div>
         <div class="right-container__buttons">
@@ -83,6 +76,8 @@
         </div>
     </div>
 </div>
-<script src="assets/JS/app.js"></script>
+{% block scripts %}
+<script src="{{ asset('Assets/JS/app.js') }}"></script>
+{% endblock %}
 </body>
 </html>
