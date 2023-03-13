@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}- Abomistar index{% endblock %}
+
+{% block leftScreen %}
+    <h1>Abomistar index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>ImageUrl</th>
+                <th>Name</th>
+                <th>Size</th>
+                <th>Weight</th>
+                <th>Anecdotes</th>
+                <th>Alimentation</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for abomistar in abomistars %}
+            <tr>
+                <td>{{ abomistar.id }}</td>
+                <td>{{ abomistar.imageUrl }}</td>
+                <td>{{ abomistar.name }}</td>
+                <td>{{ abomistar.size }}</td>
+                <td>{{ abomistar.weight }}</td>
+                <td>{{ abomistar.anecdotes ? abomistar.anecdotes|join(', ') : '' }}</td>
+                <td>{{ abomistar.alimentation }}</td>
+                <td>
+                    <a href="{{ path('app_abomistar_show', {'id': abomistar.id}) }}">show</a>
+                    <a href="{{ path('app_abomistar_edit', {'id': abomistar.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_abomistar_new') }}">Create new</a>
+{% endblock %}

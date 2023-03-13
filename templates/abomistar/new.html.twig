@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Abomistar{% endblock %}
+
+{% block leftScreen %}
+    <h1>Create new Abomistar</h1>
+
+    {{ include('abomistar/_form.html.twig') }}
+
+    <a href="{{ path('app_abomistar_index') }}">back to list</a>
+{% endblock %}
