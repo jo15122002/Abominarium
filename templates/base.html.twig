@@ -76,6 +76,8 @@
         </div>
     </div>
 </div>
-<script src="assets/JS/app.js"></script>
+{% block scripts %}
+<script src="{{ asset('Assets/JS/app.js') }}"></script>
+{% endblock %}
 </body>
 </html>

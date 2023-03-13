@@ -6,10 +6,7 @@
     <h1>Edit User</h1>
 
     {% if is_granted('ROLE_ADMIN') or user.id == app.user.id %}
-        <a href="{{ path('app_forgot_password_request') }}">Lost password ?</a>
         {{ include('user/_form.html.twig', {'button_label': 'Update'}) }}
-
-        <a href="{{ path('app_user_index') }}">back to list</a>
 
         {{ include('user/_delete_form.html.twig') }}
     {% endif %}
