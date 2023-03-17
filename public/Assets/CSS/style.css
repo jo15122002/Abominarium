@@ -154,6 +154,11 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: calc(100% * 10 / 400);
+}
+
+.main-section__black .container__screen {
+    width: 100%;
 }
 
 .main-screen {
@@ -433,7 +438,7 @@ body {
     padding: calc(100% * 10 / 400);
 }
 
-.right-container__screen {
+.container__screen {
     background: var(--screen-on);
     border-radius: calc(100% * 15 / 280);
     display: flex;
@@ -474,6 +479,7 @@ body {
 .left-button,
 .right-button {
     align-items: center;
+    text-decoration: none;
     background: var(--button-preview-next-background);
     border-radius: var(--size-3);
     border: var(--size-2) solid var(--button-preview-next-border);

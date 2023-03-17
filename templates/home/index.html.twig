@@ -28,9 +28,16 @@
 {% endblock %}
 
 {% block rightScreen %}
-    {% for abomistar in abomistars %}
-        <div class="list-item">
-            {{ abomistar.name|upper }}
-        </div>
+    {% for abomistar in currentPageAbomistars %}
+        <a href="/abomistar/{{ abomistar.id }}?page={{ currentPage }}" class="list-item">
+                {{ abomistar.name|upper }}
+        </a>
     {% endfor %}
+{% endblock %}
+
+{% block buttonPrev %}
+    <a class="left-button unselectable" href="?page={{ currentPage > 1 ? currentPage - 1 : totalPages }}">Prev</a>
+{% endblock %}
+{% block buttonNext %}
+    <a class="right-button unselectable" href="?page={{ currentPage < totalPages ? currentPage + 1 : 1 }}">Next</a>
 {% endblock %}

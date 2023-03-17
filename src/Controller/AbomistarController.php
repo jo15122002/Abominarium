@@ -43,8 +43,72 @@ class AbomistarController extends AbstractController
     #[Route('/{id}', name: 'app_abomistar_show', methods: ['GET'])]
     public function show(Abomistar $abomistar): Response
     {
+        $abomistarFalse = [
+            'name' => 'Acidling',
+            'id' => 4,
+            'imageUrl' => 'https://url.png',
+            'size' => 0.5,
+            'weight' => 10,
+            'capacities' => [
+                [
+                    'id' => 1,
+                    'name' => 'Acid Spray',
+                    'description' => 'Sprays acid on enemies',
+                    'abomistars' => []
+                ],
+                [
+                    'id' => 2,
+                    'name' => 'Poison Touch',
+                    'description' => 'Poisons enemies upon touch',
+                    'abomistars' => []
+                ]
+            ],
+            'types' => [
+                [
+                    'id' => 1,
+                    'name' => 'Poison',
+                    'abomistars' => [],
+                    'strengths' => [
+                        [
+                            'id' => 2,
+                            'name' => 'Grass',
+                            'abomistars' => [],
+                            'strengths' => [],
+                            'weaknesses' => []
+                        ]
+                    ],
+                    'weaknesses' => [
+                        [
+                            'id' => 3,
+                            'name' => 'Steel',
+                            'abomistars' => [],
+                            'strengths' => [],
+                            'weaknesses' => []
+                        ]
+                    ]
+                ]
+            ],
+            'habitat' => [
+                'id' => 1,
+                'name' => 'Swamp',
+                'description' => 'A murky swamp',
+                'anecdotes' => [
+                    'Many Acidlings live in the swamp',
+                    'The swamp is full of dangerous creatures'
+                ],
+                'inhabitants' => []
+            ],
+            'anecdotes' => [
+                'Acidlings are known for their ability to spray acid',
+                'They are often found in swamps'
+            ],
+            'alimentation' => 'Insects',
+            'previousEvolution' => null,
+            'nextEvolution' => null
+        ];
+
         return $this->render('abomistar/show.html.twig', [
-            'abomistar' => $abomistar,
+            'abomistar' => $abomistarFalse,
         ]);
     }
 
