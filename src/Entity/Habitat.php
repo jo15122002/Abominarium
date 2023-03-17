@@ -30,7 +30,7 @@ class Habitat
 
     public function __construct()
     {
-        $this->abomistars = new ArrayCollection();
+        $this->inhabitants = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -77,24 +77,24 @@ class Habitat
     /**
      * @return Collection<int, Abomistar>
      */
-    public function getAbomistars(): Collection
+    public function getInhabitants(): Collection
     {
-        return $this->abomistars;
+        return $this->inhabitants;
     }
 
-    public function addAbomistar(Abomistar $abomistar): self
+    public function addInhabitants(Abomistar $abomistar): self
     {
-        if (!$this->abomistars->contains($abomistar)) {
-            $this->abomistars->add($abomistar);
+        if (!$this->inhabitants->contains($abomistar)) {
+            $this->inhabitants->add($abomistar);
             $abomistar->setHabitat($this);
         }
 
         return $this;
     }
 
-    public function removeAbomistar(Abomistar $abomistar): self
+    public function removeInhabitants(Abomistar $abomistar): self
     {
-        if ($this->abomistars->removeElement($abomistar)) {
+        if ($this->inhabitants->removeElement($abomistar)) {
             // set the owning side to null (unless already changed)
             if ($abomistar->getHabitat() === $this) {
                 $abomistar->setHabitat(null);
