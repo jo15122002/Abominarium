@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}- Change password{% endblock %}
+
+{% block leftScreen %}
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button type="submit" class="btn">{{ button_label|default('Changer le mot de passe') }}</button>
+    {{ form_end(form) }}
+{% endblock %}
