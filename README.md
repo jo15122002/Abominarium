@@ -91,23 +91,15 @@ upstream    https://github.com/jo15122002/Abominarium.git (push)
 
 Now you can install the dependencies and start the server as described above.
 
-### Create a new branch
+### Make your changes
+
+1. Create a new branch
 
 ```bash
 git checkout -b my-new-feature
 ```
 
-### Make your changes
-
-1. Make your changes
-2. Commit your changes
-```bash
-git commit -m "Add some feature"
-```
-3. Push your changes to your fork
-```bash
-git push origin my-new-feature
-```
+2. Make your changes, commit and push them in your branch
 
 ### Create a pull request
 
