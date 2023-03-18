@@ -49,6 +49,78 @@ class AppFixtures extends Fixture
                 "habitat" => "Toundra",
                 "evolution_precedente" => "Glaciopod",
                 "evolution_suivante" => null
+            ],
+            [
+                "nom" => "Klowala",
+                "type" => "Eau",
+                "description" => "Un abomistar de type Eau ressemblant à un koala mouillé déguisé en clown flippant. Il peut projeter des jets d'eau sur ses ennemis pour les désorienter.",
+                "image" => "klowala.jpg",
+                "taille" => "1.5",
+                "poids" => "200",
+                "alimentation" => "Eucalyptus et algues marines",
+                "habitat" => "Forêt",
+                "evolution_precedente" => null,
+                "evolution_suivante" => null
+            ],
+            [
+                "nom" => "Garoulame",
+                "type" => "Ténèbres",
+                "description" => "Une évolution du Klownite qui a développé un pelage sombre pour se camoufler dans les ombres. Il peut lancer des attaques de type Ténèbres et piéger ses ennemis dans des illusions.",
+                "image" => "garoulame.jpg",
+                "taille" => "3",
+                "poids" => "600",
+                "alimentation" => "Viande rouge et noix",
+                "habitat" => "Souterrain",
+                "evolution_precedente" => null,
+                "evolution_suivante" => "Garoulupine"
+            ],
+            [
+                "nom" => "Garoulupine",
+                "type" => "Ténèbres",
+                "description" => "La forme ultime du Klowala, avec un pelage sombre et des crocs acérés. Il peut lancer des attaques de type Ténèbres et de type Combat et utiliser son agilité pour esquiver les attaques ennemies.",
+                "image" => "garoulupine.jpg",
+                "taille" => "4",
+                "poids" => "1000",
+                "alimentation" => "Viande rouge et noix",
+                "habitat" => "Forêt",
+                "evolution_precedente" => "Garoulame",
+                "evolution_suivante" => null
+            ],
+            [
+                "nom" => "Toximaw",
+                "type" => "Poison",
+                "description" => "Un abomistar de type Poison ressemblant à un crocodile à l'allure menaçante. Il peut injecter un poison mortel à travers ses crocs et utiliser son corps musclé pour asséner des coups puissants.",
+                "image" => "toximaw.jpg",
+                "taille" => "2",
+                "poids" => "300",
+                "alimentation" => "Viande crue et charognes",
+                "habitat" => "Marais",
+                "evolution_precedente" => null,
+                "evolution_suivante" => "Toxiclaw"
+            ],
+            [
+                "nom" => "Toxiclaw",
+                "type" => "Poison/Combat",
+                "description" => "Une évolution du Toximaw qui a développé une force phénoménale pour écraser ses ennemis. Il peut injecter un poison mortel à travers ses crocs acérés et utiliser ses griffes puissantes pour lacérer les ennemis.",
+                "image" => "toxiclaw.jpg",
+                "taille" => "2.5",
+                "poids" => "500",
+                "alimentation" => "Viande crue et charognes",
+                "habitat" => "Forêt",
+                "evolution_precedente" => "Toximaw",
+                "evolution_suivante" => "Venodoom"
+            ],
+            [
+                "nom" => "Venodoom",
+                "type" => "Poison/Combat",
+                "description" => "La forme ultime du Toximaw, avec un corps massif et des crocs venimeux géants. Il peut utiliser son agilité pour éviter les attaques ennemies et lacérer ses ennemis avec ses griffes acérées.",
+                "image" => "venodoom.jpg",
+                "taille" => "3",
+                "poids" => "800",
+                "alimentation" => "Viande crue et charognes",
+                "habitat" => "Forêt",
+                "evolution_precedente" => "Toxiclaw",
+                "evolution_suivante" => null
             ]
         ];
 
@@ -146,7 +218,14 @@ class AppFixtures extends Fixture
         foreach ($abomistars as $abomistar) {
             $abomistarObject = new Abomistar();
             $abomistarObject->setName($abomistar['nom']);
-            $abomistarObject->addType($manager->getRepository(AbomistarType::class)->findOneBy(['name' => $abomistar['type']]));
+            if(str_contains($abomistar['type'], "/")){
+                $types = explode("/", $abomistar['type']);
+                foreach ($types as $type){
+                    $abomistarObject->addType($manager->getRepository(AbomistarType::class)->findOneBy(['name' => $type]));
+                }
+            }else{
+                $abomistarObject->addType($manager->getRepository(AbomistarType::class)->findOneBy(['name' => $abomistar['type']]));
+            }
             $abomistarObject->setAnecdotes([$abomistar['description']]);
             $abomistarObject->setImageUrl($abomistar['image']);
             $abomistarObject->setSize((float)$abomistar['taille']);
