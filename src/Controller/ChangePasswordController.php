@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
 use App\Form\ChangePasswordType;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -14,8 +15,8 @@ use Symfony\Component\Routing\Annotation\Route;
 class ChangePasswordController extends AbstractController
 {
 
-    #[Route('/change/password', name: 'app_change_password')]
-    public function index(Request $request, UserPasswordHasherInterface $passwordHasher, UserRepository $userRepository): Response
+    #[Route('/change/password/{id}', name: 'app_change_password')]
+    public function index(Request $request, UserPasswordHasherInterface $passwordHasher, UserRepository $userRepository, User $user): Response
     {
         $userData = $this->getUser();
 
@@ -50,6 +51,7 @@ class ChangePasswordController extends AbstractController
 
         return $this->render('change_password/index.html.twig', [
             'form' => $form->createView(),
+            'user' => $user,
         ]);
     }
 }

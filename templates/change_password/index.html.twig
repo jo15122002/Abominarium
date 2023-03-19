@@ -2,9 +2,49 @@
 
 {% block title %}- Change password{% endblock %}
 
+{% block styles %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('Assets/CSS/login_register.css') }}">
+{% endblock %}
+
 {% block leftScreen %}
+    {{ include('user/_info.html.twig') }}
+    {{ parent() }}
+{% endblock %}
+
+{% block rightScreen %}
+    <h3>Modifier le mot de passe</h3>
     {{ form_start(form) }}
-    {{ form_widget(form) }}
+    <div class="input__container">
+        <i class="fa-solid fa-lock"></i>
+        {{ form_widget(form.oldPassword, {
+            'attr': {
+                'placeholder': 'Ancien mot de passe',
+                'id': 'old_password'
+            }
+        }) }}
+    </div>
+    <div class="input__container">
+        <i class="fa-solid fa-key"></i>
+        {{ form_widget(form.newPassword.first, {
+            'attr': {
+                'placeholder': 'Nouveau mot de passe',
+                'id': 'new_password'
+            }
+        }) }}
+    </div>
+    <div class="input__container">
+        <i class="fa-solid fa-key"></i>
+        {{ form_widget(form.newPassword.second, {
+            'attr': {
+                'placeholder': 'Confirmer le mot de passe',
+                'id': 'confirm_password'
+            }
+        }) }}
+    </div>
+    <div class="error__container">
+        {{ form_errors(form) }}
+    </div>
     <button type="submit" class="btn">{{ button_label|default('Changer le mot de passe') }}</button>
     {{ form_end(form) }}
 {% endblock %}

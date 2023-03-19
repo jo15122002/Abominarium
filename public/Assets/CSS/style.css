@@ -642,3 +642,25 @@ body {
 ::-webkit-scrollbar-thumb:hover {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
+
+.logout {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 5px;
+    padding-right: 10px;
+}
+
+.logout > a {
+    text-decoration: none;
+    color: black;
+}
+
+.info_content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}

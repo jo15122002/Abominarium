@@ -5,9 +5,9 @@
     justify-content: center;
 }
 
-.container__screen>a{
+.container__screen>a, .info_content > a{
     text-decoration: none;
-    color: #1e90ff;
+    color: #104d8c;
     font-size: 14px;
     margin-top: 30px;
 }
@@ -61,4 +61,23 @@
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
+}
+
+.btn-delete {
+    border: solid 2px #ff0000 !important;
+    background: none !important;
+    margin-top: 20px;
+    padding: 0 20px;
+}
+
+.info_user {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.error__container li {
+    list-style: none;
+    font-size: 12px;
+    margin-bottom: 10px;
+    color: red;
 }

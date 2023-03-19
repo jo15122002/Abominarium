@@ -8,43 +8,41 @@
 {% endblock %}
 
 {% block leftScreen %}
-    <div class="container__screen">
-        <h2>Créer un compte</h2>
+    <h2>Créer un compte</h2>
 
-        {{ form_start(registrationForm) }}
-        <div class="input__container">
-            <i class="fas fa-user" aria-hidden="true"></i>
-            {{ form_widget(registrationForm.username, {
-                'attr': {
-                    'placeholder': 'Nom d\'utilisateur',
-                    'id': 'username'
-                }
-            }) }}
-        </div>
-        <div class="input__container">
-            <i class="fas fa-envelope" aria-hidden="true"></i>
-            {{ form_widget(registrationForm.email, {
-                'attr': {
-                    'placeholder': 'Adresse email',
-                    'id': 'email_address'
-                }
-            }) }}
-        </div>
-        <div class="input__container">
-            <i class="fas fa-lock" aria-hidden="true"></i>
-            {{ form_widget(registrationForm.plainPassword, {
-                'attr': {
-                    'placeholder': 'Mot de passe',
-                    'id': 'password'
-                }
-            }) }}
-        </div>
-
-        <div class="error__container">
-            {{ form_errors(registrationForm) }}
-        </div>
-            <button type="submit" class="btn">Créer un compte</button>
-        {{ form_end(registrationForm) }}
-        <a href="{{ path('app_login') }}">Se connecter</a>
+    {{ form_start(registrationForm) }}
+    <div class="input__container">
+        <i class="fas fa-user" aria-hidden="true"></i>
+        {{ form_widget(registrationForm.username, {
+            'attr': {
+                'placeholder': 'Nom d\'utilisateur',
+                'id': 'username'
+            }
+        }) }}
     </div>
+    <div class="input__container">
+        <i class="fas fa-envelope" aria-hidden="true"></i>
+        {{ form_widget(registrationForm.email, {
+            'attr': {
+                'placeholder': 'Adresse email',
+                'id': 'email_address'
+            }
+        }) }}
+    </div>
+    <div class="input__container">
+        <i class="fas fa-lock" aria-hidden="true"></i>
+        {{ form_widget(registrationForm.plainPassword, {
+            'attr': {
+                'placeholder': 'Mot de passe',
+                'id': 'password'
+            }
+        }) }}
+    </div>
+
+    <div class="error__container">
+        {{ form_errors(registrationForm) }}
+    </div>
+    <button type="submit" class="btn">Créer un compte</button>
+    {{ form_end(registrationForm) }}
+    <a href="{{ path('app_login') }}">Se connecter</a>
 {% endblock %}
