@@ -4,6 +4,7 @@ namespace App\DataFixtures;
 
 use App\Entity\Abomistar;
 use App\Entity\AbomistarType;
+use App\Entity\Capacity;
 use App\Entity\Habitat;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -49,6 +50,78 @@ class AppFixtures extends Fixture
                 "habitat" => "Toundra",
                 "evolution_precedente" => "Glaciopod",
                 "evolution_suivante" => null
+            ],
+            [
+                "nom" => "Klowala",
+                "type" => "Eau",
+                "description" => "Un abomistar de type Eau ressemblant à un koala mouillé déguisé en clown flippant. Il peut projeter des jets d'eau sur ses ennemis pour les désorienter.",
+                "image" => "klowala.jpg",
+                "taille" => "1.5",
+                "poids" => "200",
+                "alimentation" => "Eucalyptus et algues marines",
+                "habitat" => "Forêt",
+                "evolution_precedente" => null,
+                "evolution_suivante" => null
+            ],
+            [
+                "nom" => "Garoulame",
+                "type" => "Ténèbres",
+                "description" => "Une évolution du Klownite qui a développé un pelage sombre pour se camoufler dans les ombres. Il peut lancer des attaques de type Ténèbres et piéger ses ennemis dans des illusions.",
+                "image" => "garoulame.jpg",
+                "taille" => "3",
+                "poids" => "600",
+                "alimentation" => "Viande rouge et noix",
+                "habitat" => "Souterrain",
+                "evolution_precedente" => null,
+                "evolution_suivante" => "Garoulupine"
+            ],
+            [
+                "nom" => "Garoulupine",
+                "type" => "Ténèbres",
+                "description" => "La forme ultime du Klowala, avec un pelage sombre et des crocs acérés. Il peut lancer des attaques de type Ténèbres et de type Combat et utiliser son agilité pour esquiver les attaques ennemies.",
+                "image" => "garoulupine.jpg",
+                "taille" => "4",
+                "poids" => "1000",
+                "alimentation" => "Viande rouge et noix",
+                "habitat" => "Forêt",
+                "evolution_precedente" => "Garoulame",
+                "evolution_suivante" => null
+            ],
+            [
+                "nom" => "Toximaw",
+                "type" => "Poison",
+                "description" => "Un abomistar de type Poison ressemblant à un crocodile à l'allure menaçante. Il peut injecter un poison mortel à travers ses crocs et utiliser son corps musclé pour asséner des coups puissants.",
+                "image" => "toximaw.jpg",
+                "taille" => "2",
+                "poids" => "300",
+                "alimentation" => "Viande crue et charognes",
+                "habitat" => "Marais",
+                "evolution_precedente" => null,
+                "evolution_suivante" => "Toxiclaw"
+            ],
+            [
+                "nom" => "Toxiclaw",
+                "type" => "Poison/Combat",
+                "description" => "Une évolution du Toximaw qui a développé une force phénoménale pour écraser ses ennemis. Il peut injecter un poison mortel à travers ses crocs acérés et utiliser ses griffes puissantes pour lacérer les ennemis.",
+                "image" => "toxiclaw.jpg",
+                "taille" => "2.5",
+                "poids" => "500",
+                "alimentation" => "Viande crue et charognes",
+                "habitat" => "Forêt",
+                "evolution_precedente" => "Toximaw",
+                "evolution_suivante" => "Venodoom"
+            ],
+            [
+                "nom" => "Venodoom",
+                "type" => "Poison/Combat",
+                "description" => "La forme ultime du Toximaw, avec un corps massif et des crocs venimeux géants. Il peut utiliser son agilité pour éviter les attaques ennemies et lacérer ses ennemis avec ses griffes acérées.",
+                "image" => "venodoom.jpg",
+                "taille" => "3",
+                "poids" => "800",
+                "alimentation" => "Viande crue et charognes",
+                "habitat" => "Forêt",
+                "evolution_precedente" => "Toxiclaw",
+                "evolution_suivante" => null
             ]
         ];
 
@@ -93,9 +166,60 @@ class AppFixtures extends Fixture
             "Espace" => "Un habitat extraterrestre, avec des environnements étranges et des Abomistars cosmiques."
         ];
 
+        $attaques = array(
+            "Icelurk" => array(
+                "Rayon glacé" => "L'Abomistar projette un rayon glacé sur son adversaire, infligeant des dégâts et le gelant.",
+                "Bouclier de glace" => "L'Abomistar se protège avec un bouclier de glace, augmentant sa défense et diminuant les dégâts qu'il reçoit.",
+                "Griffes de glace" => "L'Abomistar frappe son adversaire avec des griffes de glace, infligeant des dégâts et le gelant."
+            ),
+            "Glaciopod" => array(
+                "Frappe glacée" => "L'Abomistar frappe son adversaire avec un poing glacé, infligeant des dégâts et le gelant.",
+                "Glissade" => "L'Abomistar glisse sur la glace, augmentant sa vitesse et diminuant les dégâts qu'il reçoit.",
+                "Coup de tête" => "L'Abomistar donne un coup de tête puissant à son adversaire, infligeant des dégâts et le projetant en arrière."
+            ),
+            "Frostbite" => array(
+                "Morsure glacée" => "L'Abomistar mord son adversaire avec des crocs glacés, infligeant des dégâts et le gelant.",
+                "Regard glacial" => "L'Abomistar fixe son adversaire du regard, diminuant sa vitesse et le gelant.",
+                "Patinage artistique" => "L'Abomistar exécute une danse sur glace, augmentant sa défense et intimidant son adversaire."
+            ),
+            "Klowala" => array(
+                "Attaque en piqué" => "L'Abomistar plonge sur son adversaire en piqué, infligeant des dégâts et le projetant au sol.",
+                "Boule de poil" => "L'Abomistar lance une boule de poil sur son adversaire, infligeant des dégâts et le rendant confus.",
+                "Sourire narquois" => "L'Abomistar sourit narquoisement à son adversaire, diminuant son attaque et augmentant la sienne."
+            ),
+            "Garoulame" => array(
+                "Crocs acérés" => "L'Abomistar mord son adversaire avec des crocs acérés, infligeant des dégâts et le rendant saigné.",
+                "Danse de la lune" => "L'Abomistar danse sous la lune, augmentant sa vitesse et diminuant les dégâts qu'il reçoit.",
+                "Rugissement lunaire" => "L'Abomistar rugit à la lune, augmentant sa défense et intimidant son adversaire."
+            ),
+            "Garoulupine" => array(
+                "Coup de griffe empoisonné" => "L'Abomistar frappe son adversaire avec une griffe empoisonnée, infligeant des dégâts et le rendant empoisonné.",
+                "Toile toxique" => "L'Abomistar tisse une toile toxique autour de son adversaire, diminuant sa vitesse et le rendant empoisonné.",
+                "Rage nocturne" => "L'Abomistar se met en colère sous la lueur de la lune, augmentant son attaque et diminuant sa défense."
+            ),
+            "Toximaw" => array(
+                "Morsure toxique" => "L'Abomistar mord son adversaire avec des crocs toxiques, infligeant des dégâts et le rendant empoisonné.",
+                "Lacération" => "L'Abomistar lacère son adversaire avec ses griffes acérées, infligeant des dégâts et le saignant.",
+                "Venin fatal" => "L'Abomistar injecte un venin mortel dans son adversaire, infligeant des dégâts et le rendant empoisonné gravement."
+            ),
+            "Toxiclaw" => array(
+                "Griffe empoisonnée" => "L'Abomistar frappe son adversaire avec une griffe empoisonnée, infligeant des dégâts et le rendant empoisonné.",
+                "Danse du venin" => "L'Abomistar exécute une danse envoûtante, diminuant la défense de son adversaire et le rendant empoisonné.",
+                "Poison paralysant" => "L'Abomistar injecte un poison paralysant dans son adversaire, infligeant des dégâts et le paralysant."
+            ),
+            "Venodoom" => array(
+                "Pistolet à venin" => "L'Abomistar projette un jet de venin sur son adversaire, infligeant des dégâts et le rendant empoisonné.",
+                "Choc toxique" => "L'Abomistar frappe son adversaire avec une attaque chargée de poison, infligeant des dégâts et le rendant empoisonné gravement.",
+                "Nuage de poison" => "L'Abomistar crée un nuage de poison toxique autour de son adversaire, diminuant sa défense et le rendant empoisonné."
+            )
+        );
+
+
+
         $this->loadTypes($manager, $types);
         $this->loadHabitats($manager, $habitats);
         $this->loadAbomistars($manager, $abomistars);
+        $this->loadAttaques($manager, $attaques);
     }
 
     private function loadTypes(ObjectManager $manager, array $types): void
@@ -146,7 +270,14 @@ class AppFixtures extends Fixture
         foreach ($abomistars as $abomistar) {
             $abomistarObject = new Abomistar();
             $abomistarObject->setName($abomistar['nom']);
-            $abomistarObject->addType($manager->getRepository(AbomistarType::class)->findOneBy(['name' => $abomistar['type']]));
+            if(str_contains($abomistar['type'], "/")){
+                $types = explode("/", $abomistar['type']);
+                foreach ($types as $type){
+                    $abomistarObject->addType($manager->getRepository(AbomistarType::class)->findOneBy(['name' => $type]));
+                }
+            }else{
+                $abomistarObject->addType($manager->getRepository(AbomistarType::class)->findOneBy(['name' => $abomistar['type']]));
+            }
             $abomistarObject->setAnecdotes([$abomistar['description']]);
             $abomistarObject->setImageUrl($abomistar['image']);
             $abomistarObject->setSize((float)$abomistar['taille']);
@@ -174,6 +305,31 @@ class AppFixtures extends Fixture
 
             $manager->persist($abomistarObject);
         }
+        $manager->flush();
+    }
+
+    private function loadAttaques(ObjectManager $manager, array $attaques): void
+    {
+        foreach ($attaques as $abomistar => $attaque){
+            foreach ($attaque as $name => $description){
+                $attaqueObject = new Capacity();
+                $attaqueObject->setName($name);
+                $attaqueObject->setDescription($description);
+                $manager->persist($attaqueObject);
+            }
+        }
+
+        $manager->flush();
+
+        foreach ($attaques as $abomistar => $attaque){
+            $abomistarObject = $manager->getRepository(Abomistar::class)->findOneBy(['name' => $abomistar]);
+            foreach ($attaque as $name => $description){
+                $attaqueObject = $manager->getRepository(Capacity::class)->findOneBy(['name' => $name]);
+                $abomistarObject->addCapacity($attaqueObject);
+            }
+            $manager->persist($abomistarObject);
+        }
+
         $manager->flush();
     }
 }
