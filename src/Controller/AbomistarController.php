@@ -48,7 +48,7 @@ class AbomistarController extends AbstractController
     }
 
     #[Route('/{id}', name: 'app_abomistar_show', methods: ['GET'])]
-    public function show(string $id): Response
+    public function show(string $id, Request $request): Response
     {
         $aboList = $this->abomistarRepository->findAll();
         if($id < $aboList[0]->getId()){
@@ -56,8 +56,26 @@ class AbomistarController extends AbstractController
         }else if($id > $aboList[count($aboList)-1]->getId()){
             $id = $aboList[count($aboList)-1]->getId();
         }
+        $abomistar = $this->abomistarRepository->findBy(['id' => $id])[0];
+        // tant que l'abomistar n'a pas d'évolution, on incremente une variable pour savoir combien de fois on a fait ça pour avoir le level d'évolution de l'abomistar
+        $evolutionLevel = 0;
+        while($abomistar->getPreviousEvolution() != null){
+            $evolutionLevel++;
+            $abomistar = $this->abomistarRepository->findBy(['id' => $abomistar->getPreviousEvolution()->getId()])[0];
+        }
+        $abomistarsPerPage = 22;
+
+        $abomistars = $this->abomistarRepository->findAll();
+        $page = $request->query->getInt('page', 1);
+        $offset = ($page - 1) * $abomistarsPerPage;
+        $currentPageAbomistars = array_slice($abomistars, $offset, $abomistarsPerPage);
+
         return $this->render('abomistar/show.html.twig', [
-            'abomistar' => $this->abomistarRepository->findBy(['id' => $id])[0]
+            'abomistar' => $this->abomistarRepository->findBy(['id' => $id])[0],
+            'evolutionLevel' => $evolutionLevel,
+            'currentPageAbomistars' => $currentPageAbomistars,
+            'currentPage' => $page,
+            'totalPages' => ceil(count($abomistars) / $abomistarsPerPage),
         ]);
     }
 
