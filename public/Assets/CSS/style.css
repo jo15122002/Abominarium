@@ -478,6 +478,14 @@ body {
     color: white;
 }
 
+.add-item {
+    display: flex;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 20px;
+    border: solid rgb(255 255 255 / 11%);
+}
+
 .right-container__buttons {
     display: flex;
     justify-content: space-around;

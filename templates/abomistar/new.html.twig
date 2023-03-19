@@ -3,9 +3,11 @@
 {% block title %}New Abomistar{% endblock %}
 
 {% block leftScreen %}
-    <h1>Create new Abomistar</h1>
+<div class="container__screen">
+    <h2>Create new Abomistar</h2>
 
     {{ include('abomistar/_form.html.twig') }}
 
-    <a href="{{ path('app_abomistar_index') }}">back to list</a>
+    <a href="{{ path('app_home_index') }}">back to home</a>
+</div>
 {% endblock %}
