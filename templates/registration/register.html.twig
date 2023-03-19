@@ -40,6 +40,9 @@
             }) }}
         </div>
 
+        <div class="error__container">
+            {{ form_errors(registrationForm) }}
+        </div>
             <button type="submit" class="btn">Créer un compte</button>
         {{ form_end(registrationForm) }}
         <a href="{{ path('app_login') }}">Se connecter</a>
