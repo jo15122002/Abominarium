@@ -8,6 +8,26 @@
     justify-content: space-between;
 }
 
+.abomistar_header h4 {
+    font-size: 14px;
+}
+
+.abomistar_types {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3px;
+}
+
+.abomistar_type {
+    font-size: 12px;
+    background: black;
+    color: white;
+    border-radius: 15px;
+    padding: 3px 10px;
+}
+
 .abomistar_content {
     display: flex;
     flex-direction: row;
