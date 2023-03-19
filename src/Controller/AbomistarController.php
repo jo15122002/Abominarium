@@ -13,6 +13,13 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/abomistar')]
 class AbomistarController extends AbstractController
 {
+    public function __construct(
+        AbomistarRepository $abomistarRepository
+    )
+    {
+        $this->abomistarRepository = $abomistarRepository;
+    }
+
     #[Route('/', name: 'app_abomistar_index', methods: ['GET'])]
     public function index(AbomistarRepository $abomistarRepository): Response
     {
@@ -41,74 +48,16 @@ class AbomistarController extends AbstractController
     }
 
     #[Route('/{id}', name: 'app_abomistar_show', methods: ['GET'])]
-    public function show(Abomistar $abomistar): Response
+    public function show(string $id): Response
     {
-        $abomistarFalse = [
-            'name' => 'Acidling',
-            'id' => 4,
-            'imageUrl' => 'https://url.png',
-            'size' => 0.5,
-            'weight' => 10,
-            'capacities' => [
-                [
-                    'id' => 1,
-                    'name' => 'Acid Spray',
-                    'description' => 'Sprays acid on enemies',
-                    'abomistars' => []
-                ],
-                [
-                    'id' => 2,
-                    'name' => 'Poison Touch',
-                    'description' => 'Poisons enemies upon touch',
-                    'abomistars' => []
-                ]
-            ],
-            'types' => [
-                [
-                    'id' => 1,
-                    'name' => 'Poison',
-                    'abomistars' => [],
-                    'strengths' => [
-                        [
-                            'id' => 2,
-                            'name' => 'Grass',
-                            'abomistars' => [],
-                            'strengths' => [],
-                            'weaknesses' => []
-                        ]
-                    ],
-                    'weaknesses' => [
-                        [
-                            'id' => 3,
-                            'name' => 'Steel',
-                            'abomistars' => [],
-                            'strengths' => [],
-                            'weaknesses' => []
-                        ]
-                    ]
-                ]
-            ],
-            'habitat' => [
-                'id' => 1,
-                'name' => 'Swamp',
-                'description' => 'A murky swamp',
-                'anecdotes' => [
-                    'Many Acidlings live in the swamp',
-                    'The swamp is full of dangerous creatures'
-                ],
-                'inhabitants' => []
-            ],
-            'anecdotes' => [
-                'Acidlings are known for their ability to spray acid',
-                'They are often found in swamps'
-            ],
-            'alimentation' => 'Insects',
-            'previousEvolution' => null,
-            'nextEvolution' => null
-        ];
-
+        $aboList = $this->abomistarRepository->findAll();
+        if($id < $aboList[0]->getId()){
+            $id = $aboList[0]->getId();
+        }else if($id > $aboList[count($aboList)-1]->getId()){
+            $id = $aboList[count($aboList)-1]->getId();
+        }
         return $this->render('abomistar/show.html.twig', [
-            'abomistar' => $abomistarFalse,
+            'abomistar' => $this->abomistarRepository->findBy(['id' => $id])[0]
         ]);
     }
 

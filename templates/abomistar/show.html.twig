@@ -54,3 +54,10 @@
     {{ include('abomistar/_delete_form.html.twig') }}
 </div>
 {% endblock %}
+
+{% block buttonPrev %}
+    <a class="left-button unselectable" href="/abomistar/{{ abomistar.id - 1 }}">Prev</a>
+{% endblock %}
+{% block buttonNext %}
+    <a class="right-button unselectable" href="/abomistar/{{ abomistar.id + 1 }}">Next</a>
+{% endblock %}
