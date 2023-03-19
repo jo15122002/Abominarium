@@ -2,15 +2,26 @@
 
 {% block title %} - Edit User{% endblock %}
 
+{% block styles %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('Assets/CSS/login_register.css') }}">
+{% endblock %}
+
+{% block leftScreen %}
+    {{ include('user/_info.html.twig') }}
+    {{ parent() }}
+{% endblock %}
+
 {% block rightScreen %}
-    <h1>Edit User</h1>
 
-    {% if is_granted('ROLE_ADMIN') or user.id == app.user.id %}
-        {{ include('user/_form.html.twig', {'button_label': 'Update'}) }}
+        <h3>Modifier les informations</h3>
 
-        {{ include('user/_delete_form.html.twig') }}
+        {% if is_granted('ROLE_ADMIN') or user.id == app.user.id %}
+            {{ include('user/_form.html.twig', {'button_label': 'Modifier'}) }}
 
-        <a href="{{ path('app_change_password') }}">Changer de mot de passe</a>
-    {% endif %}
+            {{ include('user/_delete_form.html.twig') }}
+
+            <a href="{{ path('app_change_password', { 'id': user.id }) }}">Changer de mot de passe</a>
+        {% endif %}
 
 {% endblock %}

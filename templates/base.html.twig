@@ -37,9 +37,14 @@
             <div class="left-container__main-section">
                 <div class="main-section__white">
                     <div class="main-section__black">
-                        {% block leftScreen %}
-                            {# TODO: Ajouter la liste des Abomistars #}
-                        {% endblock %}
+                        <div class="container__screen">
+                            {% block leftScreen %}
+                                <div class="logout">
+                                    <a href="{{ path('app_user_edit', {'id': app.user.id }) }}"><i class="fa-solid fa-circle-info"></i></a>
+                                    <a href="{{ logout_path() }}"><i class="fa-solid fa-right-from-bracket"></i></a>
+                                </div>
+                            {% endblock %}
+                        </div>
                     </div>
                 </div>
                 <div class="left-container__controllers">
@@ -83,7 +88,7 @@
     </div>
 </div>
 {% block scripts %}
-<script src="{{ asset('Assets/JS/app.js') }}"></script>
+    <script src="{{ asset('Assets/JS/app.js') }}"></script>
 {% endblock %}
 </body>
 </html>

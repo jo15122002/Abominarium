@@ -1,0 +1,13 @@
+<div class="info_content">
+    <h3>Mon Compte</h3>
+
+    <div class="info_user">
+        <p><strong>Email : </strong>{{ user.email }}</p>
+        <p><strong>Nom d'utilisateur : </strong>{{ user.username }}</p>
+    </div>
+
+
+    {% if is_granted('ROLE_ADMIN') or user.id == app.user.id %}
+        <a href="{{ path('app_home_index') }}">Retour à l'accueil</a>
+    {% endif %}
+</div>

@@ -8,7 +8,6 @@
 {% endblock %}
 
 {% block leftScreen %}
-<div class="container__screen">
     <div class="abomistar_header">
         <h4>{{ evolutionLevel > 0 ? 'lvl - ' ~ evolutionLevel : 'base' }}</h4>
         <h3>{{ abomistar.name }}</h3>
@@ -36,10 +35,12 @@
             </div>
             <div class="abomistar_stats">
                 <div class="abomistar_stat">
-                    <i class="fa-sharp fa-solid fa-ruler"></i><p>{{ abomistar.size }} m</p>
+                    <i class="fa-sharp fa-solid fa-ruler"></i>
+                    <p>{{ abomistar.size }} m</p>
                 </div>
                 <div class="abomistar_stat">
-                    <i class="fa-sharp fa-solid fa-weight-hanging"></i><p>{{ abomistar.weight }} lbs.</p>
+                    <i class="fa-sharp fa-solid fa-weight-hanging"></i>
+                    <p>{{ abomistar.weight }} lbs.</p>
                 </div>
             </div>
             <div class="abomistar_image">
@@ -47,7 +48,7 @@
             </div>
         </div>
     </div>
-</div>
+    {{ parent() }}
 {% endblock %}
 
 {% block rightScreen %}

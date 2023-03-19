@@ -1,7 +1,6 @@
 {% extends 'base.html.twig' %}
 
 {% block leftScreen %}
-    <div class="container__screen">
         <div class="content_block_text"><p>
             Il y a longtemps, dans un monde rempli de monstres étranges et terrifiants, les gens vivaient dans la peur constante des créatures qui les entouraient. Les légendes disaient que certaines de ces bêtes étaient des portails vers des mondes encore plus sombres, où des horreurs indicibles attendaient les imprudents qui oseraient les explorer.
             <br><br>
@@ -15,7 +14,7 @@
 <br><br>
             Découvrez la fascinante créature ténèbres / eau de la forêt de mangrove, Klowala ! Mesurant un mètre de haut et pesant 30 kg, Klowala se nourrit principalement de feuilles d'eucalyptus et de petits poissons. Mais ne vous laissez pas tromper par son apparence de clown sinistre, car cette créature possède des griffes acérées et peut projeter un jet d'eau avec précision, ce qui peut aveugler et ralentir ses ennemis. Les scientifiques ont même étudié cette capacité pour développer des systèmes d'extinction d'incendie plus efficaces. Klowala est également connu pour sa capacité à se déplacer avec agilité dans les arbres, lui permettant de surprendre ses ennemis par le haut. Alors, n'ayez pas peur de cette créature fascinante et découvrez ses incroyables capacités !
             </p></div>
-    </div>
+    {{ parent() }}
 {% endblock %}
 
 {% block rightScreen %}

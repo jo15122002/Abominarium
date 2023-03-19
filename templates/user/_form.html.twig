@@ -1,5 +1,11 @@
 {{ form_start(form) }}
+<div class="input__container">
+    <i class="fa-solid fa-user"></i>
     {{ form_widget(form.username) }}
+</div>
+<div class="input__container">
+    <i class="fa-solid fa-envelope"></i>
     {{ form_widget(form.email) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+</div>
+<button class="btn">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}

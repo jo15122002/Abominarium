@@ -110,6 +110,12 @@ git checkout -b my-new-feature
 
 ---
 
+## Entity Relationship Diagram
+
+![ERD](/public/Assets/Images/schema.png)
+
+---
+
 ## Story
 
 Welcome to the Abominarium, the Abomistar encyclopedia.
