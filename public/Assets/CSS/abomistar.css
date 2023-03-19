@@ -9,7 +9,7 @@
 }
 
 .abomistar_header h4 {
-    font-size: 14px;
+    font-size: calc(90vh * 12 / 500);
 }
 
 .abomistar_types {
@@ -17,15 +17,15 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    gap: 3px;
+    gap: calc(90vh * 2 / 500);
 }
 
 .abomistar_type {
-    font-size: 12px;
+    font-size: calc(90vh * 9 / 500);
     background: black;
     color: white;
-    border-radius: 15px;
-    padding: 3px 10px;
+    border-radius: calc(90vh * 12 / 500);
+    padding: calc(90vh * 2 / 500) calc(90vh * 8 / 500);
 }
 
 .abomistar_content {
@@ -37,7 +37,7 @@
 }
 
 .abomistar_content h4 {
-    font-size: 18px;
+    font-size: calc(90vh * 16 / 500);
 }
 
 .abomistar_alimentation, .abomistar_anecdotes {
@@ -45,7 +45,7 @@
 }
 
 .abomistar_content p {
-    font-size: 13px;
+    font-size: calc(90vh * 10 / 500);
 }
 
 .abomistar_left_content {
@@ -53,7 +53,7 @@
     width: 60%;
 }
 .abomistar_stats {
-    margin-top: 10px;
+    margin-top: calc(90vh * 8 / 500);
 }
 
 .abomistar_stat {
@@ -61,31 +61,31 @@
     flex-direction:row;
     align-items:center;
     justify-content: flex-start;
-    margin: 5px 0;
+    margin: calc(90vh * 4 / 500) 0;
     color: black;
 }
 
 .abomistar_stat>i {
-    font-size: 16px;
+    font-size: calc(90vh * 12 / 500);;
 }
 
 .abomistar_stat>p {
     width: 100%;
-    padding-left: 3px;
-    border-bottom: dotted rgb(0 0 0 / 15%) 1.5px;
-    line-height: 13px;
+    padding-left: calc(90vh * 2 / 500);
+    border-bottom: dotted rgb(0 0 0 / 15%) calc(90vh * 1 / 500);
+    line-height: calc(90vh * 11 / 500);
 }
 
 .abomistar_content img {
     width: 100%;
     height: 100%;
-    border: solid white 7px;
+    border: solid white calc(90vh * 5 / 500);
 }
 
 .abomistar_image {
     background-color: #aac0d3;
-    padding: 7px;
-    border-radius: 10px;
+    padding: calc(90vh * 5 / 500);
+    border-radius: calc(90vh * 8 / 500);
 }
 
 .abomistar_right_content {
@@ -96,38 +96,11 @@
     width: 40%;
 }
 
-.abomistar_controls {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-}
-
-.abomistar_controls>a {
-    color: black;
-    text-decoration: none;
-    font-size: 16px;
-    height: 20px;
-    display: flex;
-    margin-right: 7px;
-    align-items: flex-end;
-}
-
-.abomistar_controls>form {
-}
-
-.abomistar_controls button {
-    padding: 0;
-    appearance: none;
-    border: none;
-    background: none;
-    font-size: 16px;
-}
-
 .level_container {
     display: flex;
     flex-direction: row;
     align-items: center;
-    font-size: 16px;
+    font-size: calc(90vh * 14 / 500);
 }
 
 .level_container > a {

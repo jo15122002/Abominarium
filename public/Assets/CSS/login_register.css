@@ -8,22 +8,23 @@
 .container__screen>a, .info_content > a{
     text-decoration: none;
     color: #104d8c;
-    font-size: 14px;
-    margin-top: 30px;
+    font-size: calc(90vh * 12 / 500);
+    margin-top: calc(90vh * 27 / 500);
 }
 
 .input__container {
-    padding: 5px 10px;
+    padding: calc(90vh * 4 / 500) calc(90vh * 8 / 500);
     background: white;
-    border-radius: 5px;
+    border-radius: calc(90vh * 4 / 500);
     display: flex;
     align-items: center;
     flex-direction: row;
-    margin: 10px 0;
-    border: solid 2px transparent;
+    margin: calc(90vh * 8 / 500) 0;
+    border: solid calc(90vh * 1.5 / 500) transparent;
 }
 
 .input__container>input {
+    font-size: calc(90vh * 14 / 500) !important;
     -webkit-appearance: none;
     border: none;
     outline: none;
@@ -38,9 +39,10 @@
 }
 
 .input__container>i {
-    width: 25px;
-    height: 25px;
-    margin-right: 7px;
+    font-size: calc(90vh * 14 / 500) !important;
+    width: calc(90vh * 22 / 500);
+    height: calc(90vh * 22 / 500);
+    margin-right: calc(90vh * 5 / 500);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -51,33 +53,33 @@
 }
 
 .container__screen button {
-    height: 35px;
+    height: calc(90vh * 31 / 500);
     width: 100%;
     border: none;
     outline: none;
     background: #1e90ff;
     color: white;
-    border-radius: 5px;
-    font-size: 16px;
+    border-radius: calc(90vh * 4 / 500);
+    font-size: calc(90vh * 14 / 500);
     font-weight: 600;
     cursor: pointer;
 }
 
 .btn-delete {
-    border: solid 2px #ff0000 !important;
+    border: solid calc(90vh * 1.5 / 500) #ff0000 !important;
     background: none !important;
-    margin-top: 20px;
-    padding: 0 20px;
+    margin-top: calc(90vh * 18 / 500);
+    padding: 0 calc(90vh * 18 / 500);
 }
 
 .info_user {
-    margin-top: 20px;
-    font-size: 14px;
+    margin-top: calc(90vh * 18 / 500);
+    font-size: calc(90vh * 12 / 500);
 }
 
 .error__container li {
     list-style: none;
-    font-size: 12px;
-    margin-bottom: 10px;
+    font-size: calc(90vh * 10 / 500);
+    margin-bottom: calc(90vh * 8 / 500);
     color: red;
 }
