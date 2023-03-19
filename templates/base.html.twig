@@ -5,6 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://kit.fontawesome.com/281013858b.js" crossorigin="anonymous"></script>
     {% block styles %}
         <link rel="stylesheet" href="{{ asset('Assets/CSS/style.css') }}">
     {% endblock %}
@@ -20,7 +21,7 @@
                 <div class="top-section__yellow"></div>
                 <div class="top-section__green"></div>
             </div>
-            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            {# {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                 <div class="logout">
                     <a href="{{ logout_path() }}">Se déconnecter</a>
                     <a href="{{ path('app_user_show', {'id': app.user.id }) }}">Mes informations</a>
@@ -30,7 +31,7 @@
                     <a href="{{ path('app_login') }}">Se connecter</a>
                     <a href="{{ path('app_register') }}">Créer un compte</a>
                 </div>
-            {% endif %}
+            {% endif %} #}
         </div>
         <div class="left-container__main-section-container">
             <div class="left-container__main-section">
@@ -65,15 +66,19 @@
     </div>
     <div class="right-container">
         <div class="right-container__black">
-            <div class="right-container__screen">
+            <div class="container__screen">
                 {% block rightScreen %}
 
                 {% endblock %}
             </div>
         </div>
         <div class="right-container__buttons">
-            <div class="left-button unselectable">Prev</div>
-            <div class="right-button unselectable">Next</div>
+            {% block buttonPrev %}
+                <div class="left-button unselectable">Prev</div>
+            {% endblock %}
+            {% block buttonNext %}
+                <div class="right-button unselectable">Next</div>
+            {% endblock %}
         </div>
     </div>
 </div>
