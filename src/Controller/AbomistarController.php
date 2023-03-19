@@ -28,25 +28,6 @@ class AbomistarController extends AbstractController
         ]);
     }
 
-    #[Route('/new', name: 'app_abomistar_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, AbomistarRepository $abomistarRepository): Response
-    {
-        $abomistar = new Abomistar();
-        $form = $this->createForm(AbomistarType::class, $abomistar);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $abomistarRepository->save($abomistar, true);
-
-            return $this->redirectToRoute('app_abomistar_index', [], Response::HTTP_SEE_OTHER);
-        }
-
-        return $this->renderForm('abomistar/new.html.twig', [
-            'abomistar' => $abomistar,
-            'form' => $form,
-        ]);
-    }
-
     #[Route('/{id}', name: 'app_abomistar_show', methods: ['GET'])]
     public function show(string $id, Request $request): Response
     {
@@ -77,33 +58,5 @@ class AbomistarController extends AbstractController
             'currentPage' => $page,
             'totalPages' => ceil(count($abomistars) / $abomistarsPerPage),
         ]);
-    }
-
-    #[Route('/{id}/edit', name: 'app_abomistar_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Abomistar $abomistar, AbomistarRepository $abomistarRepository): Response
-    {
-        $form = $this->createForm(AbomistarType::class, $abomistar);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $abomistarRepository->save($abomistar, true);
-
-            return $this->redirectToRoute('app_abomistar_index', [], Response::HTTP_SEE_OTHER);
-        }
-
-        return $this->renderForm('abomistar/edit.html.twig', [
-            'abomistar' => $abomistar,
-            'form' => $form,
-        ]);
-    }
-
-    #[Route('/{id}', name: 'app_abomistar_delete', methods: ['POST'])]
-    public function delete(Request $request, Abomistar $abomistar, AbomistarRepository $abomistarRepository): Response
-    {
-        if ($this->isCsrfTokenValid('delete'.$abomistar->getId(), $request->request->get('_token'))) {
-            $abomistarRepository->remove($abomistar, true);
-        }
-
-        return $this->redirectToRoute('app_abomistar_index', [], Response::HTTP_SEE_OTHER);
     }
 }
