@@ -1,9 +1,16 @@
+@font-face {
+    font-family: 'pixel';
+    src: url('../Fonts/rainyhearts.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 :root {
     --background: #779060;
     --abominarium: #4718ac;
     --abominarium-shadow: #2e0e6b;
     --abominarium-border: #000000;
-    --screen-off: white;
+    --screen-off:  black;
     --screen-on: #43b0f2;
     --screen-border: #dedede;
     --cross-button-background: #000000;
@@ -53,6 +60,7 @@
 
 body {
     display: flex;
+    /*font-family: 'pixel', sans-serif;*/
     font-family: sans-serif;
     justify-content: center;
     align-items: center;
@@ -589,4 +597,40 @@ body {
 
 .fairy {
     background: #f9aeff;
+}
+
+.content_block_text {
+    max-height: 100%;
+    overflow: auto;
+    padding: 0 10px;
+}
+
+.content_block_text>p {
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0 0 1.5em;
+    padding: 0;
+}
+
+/* Redéfinir la scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: #F7F7F7;
+}
+
+/* Redéfinir la poignée de la scrollbar */
+::-webkit-scrollbar-thumb {
+    background: black;
+    border-radius: 10px;
+    border: 1px solid #F7F7F7;
+}
+
+/* Redéfinir la partie de la scrollbar qui n'est pas couverte par la poignée */
+::-webkit-scrollbar-track {
+    background: var(--screen-on);
+}
+
+/* Ajouter une ombre à la poignée pour la faire ressortir */
+::-webkit-scrollbar-thumb:hover {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }

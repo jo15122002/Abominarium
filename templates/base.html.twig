@@ -5,6 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://kit.fontawesome.com/281013858b.js" crossorigin="anonymous"></script>
     {% block styles %}
         <link rel="stylesheet" href="{{ asset('Assets/CSS/style.css') }}">
     {% endblock %}
@@ -73,10 +74,10 @@
         </div>
         <div class="right-container__buttons">
             {% block buttonPrev %}
-
+                <div class="left-button unselectable">Prev</div>
             {% endblock %}
             {% block buttonNext %}
-
+                <div class="right-button unselectable">Next</div>
             {% endblock %}
         </div>
     </div>
