@@ -5,6 +5,13 @@
     justify-content: center;
 }
 
+.container__screen>a{
+    text-decoration: none;
+    color: #1e90ff;
+    font-size: 14px;
+    margin-top: 30px;
+}
+
 .input__container {
     padding: 5px 10px;
     background: white;

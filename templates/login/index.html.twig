@@ -1,8 +1,8 @@
 {% extends 'base.html.twig' %}
-
+{% block title %}- Register{% endblock %}
 {% block styles %}
     {{ parent() }}
-    <link rel="stylesheet" href="{{ asset('Assets/CSS/login.css') }}">
+    <link rel="stylesheet" href="{{ asset('Assets/CSS/login_register.css') }}">
 {% endblock %}
 
 {% block leftScreen %}
@@ -10,6 +10,7 @@
         <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
     <div class="container__screen">
+        <h1>Login</h1>
         <form action="{{ path('app_login') }}" method="post">
             <div class="input__container">
                 <i class="fas fa-envelope"></i>
@@ -20,10 +21,8 @@
                 <input type="password" id="password" name="_password" placeholder="Password">
             </div>
 
-            {# If you want to control the URL the user is redirected to on success
-        <input type="hidden" name="_target_path" value="/account"> #}
-
             <button type="submit">Login</button>
         </form>
+        <a href="{{ path('app_register') }}">Créer un compte</a>
     </div>
 {% endblock %}

@@ -3,7 +3,16 @@
 {% block title %}Abomistar{% endblock %}
 
 {% block leftScreen %}
-    <h1>Abomistar</h1>
+<div class="container__screen">
+    <div class="abomistar_header">
+        <h3>{{ abomistar.name }}</h3>
+        <div class="abomistar_types">
+            {% for type in abomistar.types %}
+                <span class="abomistar_type">{{ type.name }}</span>
+            {% endfor %}
+        </div>
+    </div>
+
 
     <table class="table">
         <tbody>
@@ -43,4 +52,5 @@
     <a href="{{ path('app_abomistar_edit', {'id': abomistar.id}) }}">edit</a>
 
     {{ include('abomistar/_delete_form.html.twig') }}
+</div>
 {% endblock %}
