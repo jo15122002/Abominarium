@@ -9,7 +9,13 @@
 
 {% block leftScreen %}
     <div class="abomistar_header">
+        {% if abomistar.previousEvolution %}
+            <a href="/abomistar/{{ abomistar.previousEvolution.id }}"><i class="fa-sharp fa-solid fa-chevron-left"></i></a>
+        {% endif %}
         <h4>{{ evolutionLevel > 0 ? 'lvl - ' ~ evolutionLevel : 'base' }}</h4>
+        {% if abomistar.nextEvolution %}
+            <a href="/abomistar/{{ abomistar.nextEvolution.id }}"><i class="fa-sharp fa-solid fa-chevron-right"></i></a>
+        {% endif %}
         <h3>{{ abomistar.name }}</h3>
         <div class="abomistar_types">
             {% for type in abomistar.types %}
@@ -29,10 +35,6 @@
             </div>
         </div>
         <div class="abomistar_right_content">
-            <div class="abomistar_controls">
-                <a href="{{ path('app_abomistar_edit', {'id': abomistar.id}) }}">edit</a>
-                {{ include('abomistar/_delete_form.html.twig') }}
-            </div>
             <div class="abomistar_stats">
                 <div class="abomistar_stat">
                     <i class="fa-sharp fa-solid fa-ruler"></i>
