@@ -42,7 +42,7 @@ class ChangePasswordController extends AbstractController
                 $userRepository->save($user, true);
 
                 $this->addFlash('success', 'Password changed successfully');
-                return $this->redirectToRoute('app_user_show', ['id' => $user->getId()]);
+                return $this->redirectToRoute('app_user_edit', ['id' => $user->getId()]);
             }
 
         } else {
